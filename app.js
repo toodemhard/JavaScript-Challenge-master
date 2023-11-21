@@ -12,7 +12,14 @@ app.get('/stocks', async (req, res) => {
 
 app.get('/stocks/:symbol', async (req, res) => {
   const { params: { symbol } } = req
-  const data = await stocks.getStockPoints(symbol, new Date())
+
+  let data;
+  try{
+    data = await stocks.getStockPoints(symbol, new Date())
+  } catch(err) {
+    res.status(500);
+    data = "failed to retrieve stock"
+  }
   res.send(data)
 })
 
