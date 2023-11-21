@@ -1,5 +1,7 @@
 .spinner{
-  font-size: 140px;
+    font-size: 140px;
+    position: relative;
+    top: -14px;
 }
 .spinner:after {
   content: '◌';
