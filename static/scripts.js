@@ -70,13 +70,14 @@ function drawStock(points) {
     const rangeX = maxX - minX;
     const maxY = 550;
     const scaleY = 4;
-    startTime = points[0]["timestamp"];
-    timeRange = points[points.length - 1]["timestamp"] - startTime;
+    const startTime = points[0]["timestamp"];
+    const timeRange = points[points.length - 1]["timestamp"] - startTime;
+
     for (let i = 0; i < points.length - 1; i++) {
         const p1 = points[i];
         const p2 = points[i + 1];
-        t1 = (p1["timestamp"] - startTime) / timeRange * rangeX + minX;
-        t2 = (p2["timestamp"] - startTime) / timeRange * rangeX + minX;
+        const t1 = (p1["timestamp"] - startTime) / timeRange * rangeX + minX;
+        const t2 = (p2["timestamp"] - startTime) / timeRange * rangeX + minX;
 
         drawLine([t1, maxY - p1["value"] * scaleY], [t2, maxY - p2["value"] * scaleY]);
     }
